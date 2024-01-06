@@ -9,20 +9,21 @@ body {
 
 #project-div {
     width: 150vh; /* Or adjust as needed */
-    height: 70vh; /* Or adjust as needed */
+    height: 71vh; /* Or adjust as needed */
     border: 1px solid black;
     position: relative;
 }
 
 #letters-section {
     position: absolute;
-    width: 18vh;
-    height: 70vh;
+    width: 17vh;
+    height: 69.5vh;
     border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(3,.1fr);
     grid-auto-rows: minmax(20px, auto);
     gap: 10px;
+    padding: 5px;
 }
 
 .letter-container {
@@ -33,7 +34,7 @@ body {
 
 .letter {
     position: absolute; /* Overlay letters on top of each other */
-    margin: 5px;
+    /*margin: 5px;*/
     width: 35px; /* Width of each letter tile */
     height: 35px; /* Height of each letter tile */
     display: flex;
@@ -52,3 +53,19 @@ body {
     transform: translate(50%, 50%); /* Adjusts position relative to bottom-right corner */
 }
 
+#board {
+    position: absolute;
+    left: 13.5%;
+    top: 50%; /* Move the top edge to the center of the parent */
+    transform: translateY(-50%); /* Shift upwards by half its height */
+    display: grid;
+    grid-template-columns: repeat(15, 35px); /* 15 columns */
+    grid-template-rows: repeat(15, 35px); /* 15 rows */
+    gap: 1px;
+}
+
+.grid-item {
+    width: 35px;
+    height: 35px;
+    border: 1px solid black; /* Optional for visibility */
+}
