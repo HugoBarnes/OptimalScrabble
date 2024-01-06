@@ -88,35 +88,46 @@ lettersSection.addEventListener('drop', event => {
     }
 });
 // Set up the tile rack
-const tileRack = document.getElementById('tile-rack');
-for (let i = 0; i < 7; i++) {
-    const cell = document.createElement('div');
-    cell.classList.add('rack-item');
-    cell.setAttribute('id', `rack-cell-${i}`); // Set a unique ID for each cell
+function createRack(rackId) {
+    const rack = document.getElementById(rackId);
+    for (let i = 0; i < 7; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('rack-item');
+        cell.setAttribute('id', `${rackId}-cell-${i}`); // Set a unique ID for each cell
+        rack.appendChild(cell);
+    }
+}
 
+// Create the tile rack with drag-and-drop functionality
+createRack('tile-rack');
+
+// Add event listeners for drag-and-drop only to 'tile-rack'
+const tileRackCells = document.querySelectorAll('#tile-rack .rack-item');
+tileRackCells.forEach(cell => {
     cell.addEventListener('dragover', event => event.preventDefault());
     cell.addEventListener('drop', event => {
         event.preventDefault();
-        if (!cell.hasChildNodes()) { // Check if cell is empty
+        if (!cell.hasChildNodes()) {
             const data = event.dataTransfer.getData("text");
             const draggableElement = document.getElementById(data);
             cell.appendChild(draggableElement);
         }
     });
-
-    // Add right-click functionality to return letter to original position
     cell.addEventListener('contextmenu', event => {
         event.preventDefault();
         if (cell.hasChildNodes()) {
             const letter = cell.firstChild;
-            const originalParentId = 'letter' + letter.id.charAt(0).toUpperCase(); // Assuming your letter IDs are set up like this
+            const originalParentId = 'letter' + letter.id.charAt(0).toUpperCase();
             const originalParent = document.getElementById(originalParentId);
             originalParent.appendChild(letter);
         }
     });
+});
 
-    tileRack.appendChild(cell);
-}
+// Create the additional racks without drag-and-drop functionality
+createRack('words-rack-1');
+createRack('words-rack-2');
+
 
 // Enable dragging for letters
 letters.forEach(letter => {
@@ -132,7 +143,8 @@ document.getElementById('clear-rack').addEventListener('click', ()=>{
     const rackCells = document.querySelectorAll('#tile-rack .rack-item');
     rackCells.forEach(cell => {
         while(cell.firstChild){
-            cell.removeChild(cell.firstChild);
+            const letter = cell.firstChild;
+            returnLetterToStartingPlace(letter);
         }
     });
 });
@@ -141,10 +153,20 @@ document.getElementById('clear-board').addEventListener('click', ()=>{
     const boardCells = document.querySelectorAll('#board .grid-item');
     boardCells.forEach(cell => {
         while(cell.firstChild){
-            cell.removeChild(cell.firstChild);
+            const letter = cell.firstChild;
+            returnLetterToStartingPlace(letter);
         }
     });
 });
+
+function returnLetterToStartingPlace(letter){
+    const containerID = 'letter' + letter.id.charAt(0).toUpperCase();
+    const letterContainer = document.getElementById(containerID);
+
+    if(letterContainer){
+        letterContainer.appendChild(letter);
+    }
+}
 
 
 

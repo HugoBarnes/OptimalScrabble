@@ -49,8 +49,9 @@ LETTER STYLINGS:
 
 #letters-section {
     position: absolute;
-    width: 17vh;
+    width: 16.4vh;
     height: 69.5vh;
+    left: 40%;
     border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(3,.1fr);
@@ -91,9 +92,9 @@ RACK-SECTION STYLINGS:
 
 #rack-section{
     position: absolute;
-    height: 71vh;
-    width: 58vh;
-    right: 0%;
+    height: 70.8vh;
+    width: 60vh;
+    left: 0%;
     border: 1px solid black;
 }
 
@@ -249,9 +250,21 @@ ul li.how-to-bullets{
     bottom: 32.5%;
     left: 55.7%;
 }
+#words-rack-1{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 13%;
+    left: 15%;
+}
 
-
-
+#words-rack-2{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+}
 
 
 /*
@@ -261,7 +274,7 @@ BOARD STYLINGS:
 
 #board {
     position: absolute;
-    left: 13.5%;
+    right: 1%;
     top: 50%; 
     transform: translateY(-50%);
     display: grid;
