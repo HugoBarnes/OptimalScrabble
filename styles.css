@@ -85,6 +85,126 @@ LETTER STYLINGS:
     line-height: 1;
     transform: translate(50%, 50%); 
 }
+/*
+RACK-SECTION STYLINGS:
+*/
+
+#rack-section{
+    position: absolute;
+    height: 71vh;
+    width: 58vh;
+    right: 0%;
+    border: 1px solid black;
+}
+
+.underline_text{
+    text-decoration: underline;
+}
+.border_text{
+    border: 1px solid black;
+    text-align: center;
+}
+
+ul{
+    list-style-type: disc;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+#how-to-bullets{
+    position: absolute;
+    bottom: 71%;
+}
+ul li.how-to-bullets{
+    margin-top: 9px;
+}
+
+.header-class{
+    text-align: center;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+#how-to{
+    position: absolute;
+    bottom: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#legend{
+    position: absolute;
+    bottom: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#letter-rack{
+    position:absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#words{
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translate(-50%, -50%); 
+}
+
+
+.starting-tile{
+    position: absolute;
+    left: 36%;
+    bottom: 64%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .9em;
+}
+.start-square-color{
+    color: gold;
+    background-color: gold;
+}
+.double-letter-score{
+    position: absolute;
+    left: 10%;
+    bottom: 60%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .9em;
+}
+.double-letter-color{
+    background-color: lightblue;
+    color: lightblue;
+}
+.double-word-score{
+    position: absolute;
+    left: 50%;
+    bottom: 60%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .9em;
+}
+.double-word-color{
+    background-color: rgb(247, 146, 163);
+    color: rgb(247,146,163);
+}
+.triple-letter-score{
+    position: absolute;
+    left: 10%;
+    bottom: 56%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .9em;
+}
+.triple-letter-color{
+    background-color: rgb(105, 105, 139);
+    color: rgb(105, 105, 139);
+}
+.triple-word-score{
+    position: absolute;
+    left: 50%;
+    bottom: 56%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .9em;
+}
+.triple-word-color{
+    background-color: rgb(238, 58, 58);
+    color: rgb(238, 58, 58);
+}
 
 
 /*
