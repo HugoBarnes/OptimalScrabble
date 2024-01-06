@@ -3,6 +3,28 @@ const board = document.getElementById('board');
 for (let i = 0; i < 225; i++) {
     const cell = document.createElement('div');
     cell.classList.add('grid-item');
+    if(i== 0 || i==7 || i== 14 || i==105 || i==119 || i==210 || i== 217 || i==224){
+        cell.classList.add('triple-word');
+    }
+    if(i== 3 || i==11 || i== 36 || i== 38 || i==45 || i==52 || i== 59 || i==92
+        || i== 96 || i== 98 || i==102 || i== 108 || i==116 || i== 122|| i== 126|| i== 128 
+        || i== 132|| i== 165 || i== 172|| i== 179|| i== 186|| i== 188|| i== 213|| i== 221){
+        cell.classList.add('double-letter');
+    }
+    if(i== 16 || i==28 || i== 32 || i== 42 || i==48 || i==56 || i== 64 || i==70
+        || i== 154|| i== 160|| i== 168|| i== 176|| i== 182|| i== 192|| i== 196|| i== 208||
+         i== 221){
+        cell.classList.add('double-word');
+    }
+    if(i== 20 || i==24 || i== 76 || i==80 || i==84 || i==88 || i== 136 || i==140
+        || i==144 || i==148 || i==200 || i==204){
+        cell.classList.add('triple-letter');
+    }
+    if(i==112){
+        cell.classList.add('start-square')
+    }
+
+    
     cell.addEventListener('dragover', event => event.preventDefault());
     cell.addEventListener('drop', event => {
         event.preventDefault();
