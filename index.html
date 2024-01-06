@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble Solver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="project-div">
+        <div id="letters-section">
+                <div id="letterA" class="letter-container">
+                    <div id="A1" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A2" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A3" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A4" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A5" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A6" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A7" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A8" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                    <div id="A9" class="letter" draggable="true">A<span class="point-value">1</span></div>
+                </div>
+                <div id="letterB" class="letter-container">
+                    <div id="B1" class="letter" draggable="true">B<span class="point-value">3</span></div>
+                    <div id="B2" class="letter" draggable="true">B<span class="point-value">3</span></div>
+                </div>
+                <div id="letterC" class="letter-container">
+                    <div id="C1" class="letter" draggable="true">C<span class="point-value">3</span></div>
+                    <div id="C2" class="letter" draggable="true">C<span class="point-value">3</span></div>
+                </div>
+                <div id="letterD" class="letter-container">
+                    <div id="D1" class="letter" draggable="true">D<span class="point-value">2</span></div>
+                    <div id="D2" class="letter" draggable="true">D<span class="point-value">2</span></div>
+                    <div id="D3" class="letter" draggable="true">D<span class="point-value">2</span></div>
+                    <div id="D4" class="letter" draggable="true">D<span class="point-value">2</span></div>
+                </div>
+                <div id="letterE" class="letter-container">
+                    <div id="E1" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E2" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E3" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E4" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E5" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E6" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E7" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E8" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E9" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E10" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E11" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                    <div id="E12" class="letter" draggable="true">E<span class="point-value">1</span></div>
+                </div>
+                <div id="letterF" class="letter-container">
+                    <div id="F1" class="letter" draggable="true">F<span class="point-value">4</span></div>
+                    <div id="F2" class="letter" draggable="true">F<span class="point-value">4</span></div>
+                </div>
+                <div id="letterG" class="letter-container">
+                    <div id="G1" class="letter" draggable="true">G<span class="point-value">2</span></div>
+                    <div id="G2" class="letter" draggable="true">G<span class="point-value">2</span></div>
+                    <div id="G3" class="letter" draggable="true">G<span class="point-value">2</span></div>
+                </div>
+                <div id="letterH" class="letter-container">
+                    <div id="H1" class="letter" draggable="true">H<span class="point-value">4</span></div>
+                    <div id="H2" class="letter" draggable="true">H<span class="point-value">4</span></div>
+                </div>
+                <div id="letterI" class="letter-container">
+                    <div id="I1" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I2" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I3" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I4" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I5" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I6" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I7" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I8" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                    <div id="I9" class="letter" draggable="true">I<span class="point-value">1</span></div>
+                </div>
+                <div id="letterJ" class="letter-container">
+                    <div id="J1" class="letter" draggable="true">J<span class="point-value">8</span></div>
+                </div>
+                <div id="letterK" class="letter-container">
+                    <div id="K1" class="letter" draggable="true">K<span class="point-value">5</span></div>
+                </div>
+                <div id="letterL" class="letter-container">
+                    <div id="L1" class="letter" draggable="true">L<span class="point-value">1</span></div>
+                    <div id="L2" class="letter" draggable="true">L<span class="point-value">1</span></div>
+                    <div id="L3" class="letter" draggable="true">L<span class="point-value">1</span></div>
+                    <div id="L4" class="letter" draggable="true">L<span class="point-value">1</span></div>
+                </div>
+                <div id="letterM" class="letter-container">
+                    <div id="M1" class="letter" draggable="true">M<span class="point-value">3</span></div>
+                    <div id="M2" class="letter" draggable="true">M<span class="point-value">3</span></div>
+                </div>
+                <div id="letterN" class="letter-container">
+                    <div id="N1" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                    <div id="N2" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                    <div id="N3" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                    <div id="N4" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                    <div id="N5" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                    <div id="N6" class="letter" draggable="true">N<span class="point-value">1</span></div>
+                </div>
+                <div id="letterO" class="letter-container">
+                    <div id="O1" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O2" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O3" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O4" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O5" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O6" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O7" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                    <div id="O8" class="letter" draggable="true">O<span class="point-value">1</span></div>
+                </div>
+                <div id="letterP" class="letter-container">
+                    <div id="P1" class="letter" draggable="true">P<span class="point-value">3</span></div>
+                    <div id="P2" class="letter" draggable="true">P<span class="point-value">3</span></div>
+                </div>
+                <div id="letterQ" class="letter-container">
+                    <div id="Q1" class="letter" draggable="true">Q<span class="point-value">10</span></div>
+                </div>
+                <div id="letterR" class="letter-container">
+                    <div id="R1" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                    <div id="R2" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                    <div id="R3" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                    <div id="R4" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                    <div id="R5" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                    <div id="R6" class="letter" draggable="true">R<span class="point-value">1</span></div>
+                </div>
+                <div id="letterS" class="letter-container">
+                    <div id="S1" class="letter" draggable="true">S<span class="point-value">1</span></div>
+                    <div id="S2" class="letter" draggable="true">S<span class="point-value">1</span></div>
+                    <div id="S3" class="letter" draggable="true">S<span class="point-value">1</span></div>
+                    <div id="S4" class="letter" draggable="true">S<span class="point-value">1</span></div>
+                </div>
+                <div id="letterT" class="letter-container">
+                    <div id="T1" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                    <div id="T2" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                    <div id="T3" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                    <div id="T4" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                    <div id="T5" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                    <div id="T6" class="letter" draggable="true">T<span class="point-value">1</span></div>
+                </div>
+                <div id="letterU" class="letter-container">
+                    <div id="U1" class="letter" draggable="true">U<span class="point-value">1</span></div>
+                    <div id="U2" class="letter" draggable="true">U<span class="point-value">1</span></div>
+                    <div id="U3" class="letter" draggable="true">U<span class="point-value">1</span></div>
+                    <div id="U4" class="letter" draggable="true">U<span class="point-value">1</span></div>
+                </div>
+                <div id="letterV" class="letter-container">
+                    <div id="V1" class="letter" draggable="true">V<span class="point-value">4</span></div>
+                    <div id="V2" class="letter" draggable="true">V<span class="point-value">4</span></div>
+                </div>
+                <div id="letterW" class="letter-container">
+                    <div id="W1" class="letter" draggable="true">W<span class="point-value">4</span></div>
+                    <div id="W2" class="letter" draggable="true">W<span class="point-value">4</span></div>
+                </div>
+                <div id="letterX" class="letter-container">
+                    <div id="X1" class="letter" draggable="true">X<span class="point-value">8</span></div>
+                </div>
+                <div id="letterY" class="letter-container">
+                    <div id="Y1" class="letter" draggable="true">Y<span class="point-value">4</span></div>
+                    <div id="Y2" class="letter" draggable="true">Y<span class="point-value">4</span></div>
+                </div>
+                <div id="letterZ" class="letter-container">
+                    <div id="Z1" class="letter" draggable="true">Z<span class="point-value">10</span></div>
+                </div>
+                <div id="letter_" class="letter-container">
+                    <div id="_1" class="letter" draggable="true">_<span class="point-value">0</span></div>
+                    <div id="_2" class="letter" draggable="true">_<span class="point-value">0</span></div>
+                </div>
+        </div>
+
+        <div id="till">
+
+        </div>
+
+        <div id="board">
+
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
