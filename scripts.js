@@ -126,6 +126,26 @@ letters.forEach(letter => {
     });
 });
 
+// Clear Rack and Clear Board
+
+document.getElementById('clear-rack').addEventListener('click', ()=>{
+    const rackCells = document.querySelectorAll('#tile-rack .rack-item');
+    rackCells.forEach(cell => {
+        while(cell.firstChild){
+            cell.removeChild(cell.firstChild);
+        }
+    });
+});
+
+document.getElementById('clear-board').addEventListener('click', ()=>{
+    const boardCells = document.querySelectorAll('#board .grid-item');
+    boardCells.forEach(cell => {
+        while(cell.firstChild){
+            cell.removeChild(cell.firstChild);
+        }
+    });
+});
+
 
 
 

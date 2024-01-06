@@ -99,17 +99,19 @@ RACK-SECTION STYLINGS:
 
 .underline_text{
     text-decoration: underline;
+    font-weight: bold;
 }
 .border_text{
     border: 1px solid black;
     text-align: center;
     text-decoration: underline;
+    padding: .5px;
 }
 
 ul{
     list-style-type: disc;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.1em;
+    font-size: .85em;
 }
 #how-to-bullets{
     position: absolute;
@@ -219,7 +221,7 @@ ul li.how-to-bullets{
 #words{
     position: absolute;
     left: 50%;
-    bottom: 22%;
+    bottom: 23%;
     transform: translate(-50%, -50%); 
 }
 .letter-rack-button{
