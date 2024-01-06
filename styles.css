@@ -136,23 +136,9 @@ ul li.how-to-bullets{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#letter-rack{
-    position:absolute;
-    bottom: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#words{
-    position: absolute;
-    left: 50%;
-    bottom: 15%;
-    transform: translate(-50%, -50%); 
-}
-
-
 .starting-tile{
     position: absolute;
-    left: 36%;
+    left: 20.5%;
     bottom: 64%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: .9em;
@@ -185,7 +171,7 @@ ul li.how-to-bullets{
 }
 .triple-letter-score{
     position: absolute;
-    left: 10%;
+    left: 11.7%;
     bottom: 56%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: .9em;
@@ -196,7 +182,7 @@ ul li.how-to-bullets{
 }
 .triple-word-score{
     position: absolute;
-    left: 50%;
+    left: 51.7%;
     bottom: 56%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: .9em;
@@ -205,6 +191,39 @@ ul li.how-to-bullets{
     background-color: rgb(238, 58, 58);
     color: rgb(238, 58, 58);
 }
+
+#letter-rack{
+    position:absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#tile-rack{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 40%;
+    left: 15%;
+}
+.rack-item {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+}
+
+#words{
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translate(-50%, -50%); 
+}
+
+
+
 
 
 /*

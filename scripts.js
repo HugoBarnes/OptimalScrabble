@@ -87,7 +87,44 @@ lettersSection.addEventListener('drop', event => {
         }
     }
 });
+// Set up the tile rack
+const tileRack = document.getElementById('tile-rack');
+for (let i = 0; i < 7; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('rack-item');
+    cell.setAttribute('id', `rack-cell-${i}`); // Set a unique ID for each cell
 
+    cell.addEventListener('dragover', event => event.preventDefault());
+    cell.addEventListener('drop', event => {
+        event.preventDefault();
+        if (!cell.hasChildNodes()) { // Check if cell is empty
+            const data = event.dataTransfer.getData("text");
+            const draggableElement = document.getElementById(data);
+            cell.appendChild(draggableElement);
+        }
+    });
+
+    // Add right-click functionality to return letter to original position
+    cell.addEventListener('contextmenu', event => {
+        event.preventDefault();
+        if (cell.hasChildNodes()) {
+            const letter = cell.firstChild;
+            const originalParentId = 'letter' + letter.id.charAt(0).toUpperCase(); // Assuming your letter IDs are set up like this
+            const originalParent = document.getElementById(originalParentId);
+            originalParent.appendChild(letter);
+        }
+    });
+
+    tileRack.appendChild(cell);
+}
+
+// Enable dragging for letters
+letters.forEach(letter => {
+    letter.setAttribute('draggable', 'true');
+    letter.addEventListener('dragstart', event => {
+        event.dataTransfer.setData("text", event.target.id);
+    });
+});
 
 
 
