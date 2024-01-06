@@ -1,15 +1,15 @@
-body {
+#wrapper {
     position: relative;
     height: 100vh;
-    display: flex; /* Added for centering #project-div */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
 #project-div {
-    width: 150vh; /* Or adjust as needed */
-    height: 71vh; /* Or adjust as needed */
+    width: 150vh;
+    height: 71vh;
     border: 1px solid black;
     position: relative;
 }
@@ -27,45 +27,44 @@ body {
 }
 
 .letter-container {
-    position: relative; /* Allows absolute positioning inside */
-    width: 35px; /* Width of the container */
-    height: 35px; /* Height of the container */
+    position: relative;
+    width: 35px;
+    height: 35px; 
 }
 
 .letter {
-    position: absolute; /* Overlay letters on top of each other */
-    /*margin: 5px;*/
-    width: 35px; /* Width of each letter tile */
-    height: 35px; /* Height of each letter tile */
+    position: absolute;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    /* Add other styling as needed */
+    
 }
 
 .point-value {
     position: absolute;
-    bottom: 5px;  /* Adjust this value to bring subscript closer vertically */
-    right: 18px;  /* Adjust this value to bring subscript closer horizontally */
-    font-size: 10px; /* Smaller font size for subscript */
+    bottom: 5px;  
+    right: 18px;
+    font-size: 10px; 
     line-height: 1;
-    transform: translate(50%, 50%); /* Adjusts position relative to bottom-right corner */
+    transform: translate(50%, 50%); 
 }
 
 #board {
     position: absolute;
     left: 13.5%;
-    top: 50%; /* Move the top edge to the center of the parent */
-    transform: translateY(-50%); /* Shift upwards by half its height */
+    top: 50%; 
+    transform: translateY(-50%);
     display: grid;
-    grid-template-columns: repeat(15, 35px); /* 15 columns */
-    grid-template-rows: repeat(15, 35px); /* 15 rows */
+    grid-template-columns: repeat(15, 35px);
+    grid-template-rows: repeat(15, 35px);
     gap: 1px;
 }
 
 .grid-item {
     width: 35px;
     height: 35px;
-    border: 1px solid black; /* Optional for visibility */
+    border: 1px solid black;
 }
