@@ -200,15 +200,42 @@ function loadDictionary() {
 window.onload = loadDictionary;
 
 function validWords(myDictionary, permutations){
-    let result = [];
+    let result = [null, null];
+    let maxScore = 0;
+    let secondMaxScore = 0;
     let dictionarySet = new Set(myDictionary); 
 
     for (let i = 0; i < permutations.length; i++) {
         const word = permutations[i];
         if (dictionarySet.has(word)) { 
-            result.push(word);
+            const pts = sumWord(word);
+            if(pts > maxScore){
+                secondMaxScore = maxScore;
+                maxScore = pts;
+                result[1] = result[0];
+                result[0] = word;
+            } else if(pts > secondMaxScore){
+                secondMaxScore = pts;
+                result[1] = word;
+            }
         }
     }
-
+    const pts = [maxScore, secondMaxScore];
     return result;
+}
+
+function sumWord(string){
+    const points = {
+        A: 1, B: 3, C: 3, D: 2, E: 1, F: 4, G: 2, H: 4, I: 1,
+        J: 8, K: 5, L: 1, M: 3, N: 1, O: 1, P: 3, Q: 10,
+        R: 1, S: 1, T: 1, U: 1, V: 4, W: 4, X: 8, Y: 4, Z: 10
+    };
+    let sum = 0;
+    for (let i = 0; i < string.length; i++) {
+        sum += points[string.charAt(i).toUpperCase()] || 0;
+    }
+    if (string.length === 7) {
+        sum += 50;
+    }
+    return sum;
 }
