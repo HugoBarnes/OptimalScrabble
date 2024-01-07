@@ -125,12 +125,15 @@ initializeLetterDragging();
 // print the best word to the first words rack
 // print the second best word to the second words rack
 
-
+let myDictionary;
+let hashedDictionary; 
 function findBestWords(){
     const letters = getLetters(); // gets letters from tile-rack
     console.log(letters);
     const permutations = getPermutations(letters); // makes all of the possible letter arrangements for 7 letters
     console.log(permutations);
+    const words = validWords(myDictionary, permutations);
+    console.log(words);
 }
 
 document.getElementById('find-rack').addEventListener('click', ()=>{
@@ -185,9 +188,27 @@ function loadDictionary() {
         .then(text => {
             myDictionary = text.split(/\r?\n/);
             console.log("Dictionary loaded", myDictionary); // Log when the dictionary is loaded
+
+            // myDictionary.forEach(word => {
+            //     hashedDictionary.add(hash(word));
+            // });
         })
         .catch(error => {
             console.error('Error loading dictionary:', error);
         });
 }
 window.onload = loadDictionary;
+
+function validWords(myDictionary, permutations){
+    let result = [];
+    let dictionarySet = new Set(myDictionary); 
+
+    for (let i = 0; i < permutations.length; i++) {
+        const word = permutations[i];
+        if (dictionarySet.has(word)) { 
+            result.push(word);
+        }
+    }
+
+    return result;
+}
