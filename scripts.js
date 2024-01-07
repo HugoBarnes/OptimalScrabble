@@ -16,15 +16,16 @@ function addRightClickFunctionality(letter) {
 }
 
 // Function to create a generic rack with a given ID
-function createRack(rackId, cellCount) {
+function createRack(rackId, cellCount, isPointsRack = false) {
     const rack = document.getElementById(rackId);
     for (let i = 0; i < cellCount; i++) {
         const cell = document.createElement('div');
-        cell.classList.add('rack-item');
+        cell.classList.add(isPointsRack ? 'points-rack-item' : 'rack-item');
         cell.setAttribute('id', `${rackId}-cell-${i}`);
         rack.appendChild(cell);
     }
 }
+
 
 // Initialize dragging for letters
 function initializeLetterDragging() {
@@ -56,7 +57,7 @@ tileRackCells.forEach(cell => {
 // Initialize additional racks without drag-and-drop functionality
 createRack('words-rack-1', 7);
 createRack('words-rack-2', 7);
-createRack('points-rack', 2); // Points rack has only 2 cells
+createRack('points-rack', 2, true); // Points rack has only 2 cells
 
 // Function to clear a rack and return letters to their starting place
 function clearRackAndReturnLetters(rackSelector) {
