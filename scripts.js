@@ -200,7 +200,7 @@ function loadDictionary() {
 window.onload = loadDictionary;
 
 function validWords(myDictionary, permutations){
-    let result = [null, null];
+    let result = [null, null, null, null];
     let maxScore = 0;
     let secondMaxScore = 0;
     let dictionarySet = new Set(myDictionary); 
@@ -212,15 +212,16 @@ function validWords(myDictionary, permutations){
             if(pts > maxScore){
                 secondMaxScore = maxScore;
                 maxScore = pts;
-                result[1] = result[0];
+                result[2] = result[0];
                 result[0] = word;
             } else if(pts > secondMaxScore){
                 secondMaxScore = pts;
-                result[1] = word;
+                result[2] = word;
             }
         }
     }
-    const pts = [maxScore, secondMaxScore];
+    result[1]=maxScore;
+    result[3]=secondMaxScore;
     return result;
 }
 
