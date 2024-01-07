@@ -1,107 +1,45 @@
-// Create grid cells
-const board = document.getElementById('board');
-for (let i = 0; i < 225; i++) {
-    const cell = document.createElement('div');
-    cell.classList.add('grid-item');
-    if(i== 0 || i==7 || i== 14 || i==105 || i==119 || i==210 || i== 217 || i==224){
-        cell.classList.add('triple-word');
+// Function to return a letter to its starting place
+function returnLetterToStartingPlace(letter) {
+    const containerId = 'letter' + letter.id.charAt(0).toUpperCase();
+    const letterContainer = document.getElementById(containerId);
+    if (letterContainer) {
+        letterContainer.appendChild(letter);
     }
-    if(i== 3 || i==11 || i== 36 || i== 38 || i==45 || i==52 || i== 59 || i==92
-        || i== 96 || i== 98 || i==102 || i== 108 || i==116 || i== 122|| i== 126|| i== 128 
-        || i== 132|| i== 165 || i== 172|| i== 179|| i== 186|| i== 188|| i== 213|| i== 221){
-        cell.classList.add('double-letter');
-    }
-    if(i== 16 || i==28 || i== 32 || i== 42 || i==48 || i==56 || i== 64 || i==70
-        || i== 154|| i== 160|| i== 168|| i== 176|| i== 182|| i== 192|| i== 196|| i== 208||
-         i== 221){
-        cell.classList.add('double-word');
-    }
-    if(i== 20 || i==24 || i== 76 || i==80 || i==84 || i==88 || i== 136 || i==140
-        || i==144 || i==148 || i==200 || i==204){
-        cell.classList.add('triple-letter');
-    }
-    if(i==112){
-        cell.classList.add('start-square')
-    }
-
-    
-    cell.addEventListener('dragover', event => event.preventDefault());
-    cell.addEventListener('drop', event => {
-        event.preventDefault();
-        if (!cell.hasChildNodes()) { // Check if cell is empty
-            const data = event.dataTransfer.getData("text");
-            const draggableElement = document.getElementById(data);
-            cell.appendChild(draggableElement);
-        }
-    });
-    board.appendChild(cell);
 }
 
-// Get the letters section div by its ID
-const lettersSection = document.getElementById('letters-section');
-
-// Add dragstart event listener to each letter
-const letters = document.querySelectorAll('.letter');
-letters.forEach(letter => {
-    letter.addEventListener('dragstart', event => {
-        event.dataTransfer.setData("text", event.target.id);
-    });
-
-    // Add contextmenu (right-click) event listener to each letter
+// Function to add right-click functionality to a letter
+function addRightClickFunctionality(letter) {
     letter.addEventListener('contextmenu', event => {
-        event.preventDefault(); // Prevent the default context menu
-
-        const letterId = event.target.id;
-        const draggableElement = document.getElementById(letterId);
-
-        if (draggableElement && draggableElement.classList.contains('letter')) {
-            // Get the first character of the letter ID and construct the container ID
-            const containerId = 'letter' + letterId.charAt(0).toUpperCase();
-            const letterContainer = document.getElementById(containerId);
-
-            if (letterContainer) {
-                letterContainer.appendChild(draggableElement);
-            }
-        }
+        event.preventDefault(); 
+        returnLetterToStartingPlace(letter);
     });
-});
+}
 
-// Add dragover event listener to allow dropping in the letters section
-lettersSection.addEventListener('dragover', event => {
-    event.preventDefault(); // Necessary to allow dropping
-});
-
-// Add drop event listener to the letters section
-lettersSection.addEventListener('drop', event => {
-    event.preventDefault();
-    const letterId = event.dataTransfer.getData("text");
-    const draggableElement = document.getElementById(letterId);
-
-    if (draggableElement && draggableElement.classList.contains('letter')) {
-        // Get the first character of the letter ID and construct the container ID
-        const containerId = 'letter' + letterId.charAt(0).toUpperCase();
-        const letterContainer = document.getElementById(containerId);
-
-        if (letterContainer) {
-            letterContainer.appendChild(draggableElement);
-        }
-    }
-});
-// Set up the tile rack
-function createRack(rackId) {
+// Function to create a generic rack with a given ID
+function createRack(rackId, cellCount) {
     const rack = document.getElementById(rackId);
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < cellCount; i++) {
         const cell = document.createElement('div');
         cell.classList.add('rack-item');
-        cell.setAttribute('id', `${rackId}-cell-${i}`); // Set a unique ID for each cell
+        cell.setAttribute('id', `${rackId}-cell-${i}`);
         rack.appendChild(cell);
     }
 }
 
-// Create the tile rack with drag-and-drop functionality
-createRack('tile-rack');
+// Initialize dragging for letters
+function initializeLetterDragging() {
+    const letters = document.querySelectorAll('.letter');
+    letters.forEach(letter => {
+        letter.setAttribute('draggable', 'true');
+        letter.addEventListener('dragstart', event => {
+            event.dataTransfer.setData("text", event.target.id);
+        });
+        addRightClickFunctionality(letter);
+    });
+}
 
-// Add event listeners for drag-and-drop only to 'tile-rack'
+// Initialize the tile rack with drag-and-drop functionality
+createRack('tile-rack', 7);
 const tileRackCells = document.querySelectorAll('#tile-rack .rack-item');
 tileRackCells.forEach(cell => {
     cell.addEventListener('dragover', event => event.preventDefault());
@@ -113,61 +51,64 @@ tileRackCells.forEach(cell => {
             cell.appendChild(draggableElement);
         }
     });
-    cell.addEventListener('contextmenu', event => {
-        event.preventDefault();
-        if (cell.hasChildNodes()) {
-            const letter = cell.firstChild;
-            const originalParentId = 'letter' + letter.id.charAt(0).toUpperCase();
-            const originalParent = document.getElementById(originalParentId);
-            originalParent.appendChild(letter);
-        }
-    });
 });
 
-// Create the additional racks without drag-and-drop functionality
-createRack('words-rack-1');
-createRack('words-rack-2');
+// Initialize additional racks without drag-and-drop functionality
+createRack('words-rack-1', 7);
+createRack('words-rack-2', 7);
+createRack('points-rack', 2); // Points rack has only 2 cells
 
-
-// Enable dragging for letters
-letters.forEach(letter => {
-    letter.setAttribute('draggable', 'true');
-    letter.addEventListener('dragstart', event => {
-        event.dataTransfer.setData("text", event.target.id);
-    });
-});
-
-// Clear Rack and Clear Board
-
-document.getElementById('clear-rack').addEventListener('click', ()=>{
-    const rackCells = document.querySelectorAll('#tile-rack .rack-item');
+// Function to clear a rack and return letters to their starting place
+function clearRackAndReturnLetters(rackSelector) {
+    const rackCells = document.querySelectorAll(rackSelector);
     rackCells.forEach(cell => {
-        while(cell.firstChild){
-            const letter = cell.firstChild;
-            returnLetterToStartingPlace(letter);
+        while (cell.firstChild) {
+            returnLetterToStartingPlace(cell.firstChild);
         }
     });
-});
-
-document.getElementById('clear-board').addEventListener('click', ()=>{
-    const boardCells = document.querySelectorAll('#board .grid-item');
-    boardCells.forEach(cell => {
-        while(cell.firstChild){
-            const letter = cell.firstChild;
-            returnLetterToStartingPlace(letter);
-        }
-    });
-});
-
-function returnLetterToStartingPlace(letter){
-    const containerID = 'letter' + letter.id.charAt(0).toUpperCase();
-    const letterContainer = document.getElementById(containerID);
-
-    if(letterContainer){
-        letterContainer.appendChild(letter);
-    }
 }
 
+// Initialize the functionality for clearing racks and board
+document.getElementById('clear-rack').addEventListener('click', () => {
+    clearRackAndReturnLetters('#tile-rack .rack-item');
+});
+document.getElementById('clear-board').addEventListener('click', () => {
+    clearRackAndReturnLetters('#board .grid-item');
+});
 
+// Initialize the scrabble board
+const board = document.getElementById('board');
+for (let i = 0; i < 225; i++) {
+    const cell = document.createElement('div');
+    cell.classList.add('grid-item');
+    // Add special classes based on cell index
+    if ([0, 7, 14, 105, 119, 210, 217, 224].includes(i)) {
+        cell.classList.add('triple-word');
+    }
+    if ([3, 11, 36, 38, 45, 52, 59, 92, 96, 98, 102, 108, 116, 122, 126, 128, 132, 165, 172, 179, 186, 188, 213, 221].includes(i)) {
+        cell.classList.add('double-letter');
+    }
+    if ([16, 28, 32, 42, 48, 56, 64, 70, 154, 160, 168, 176, 182, 192, 196, 208, 221].includes(i)) {
+        cell.classList.add('double-word');
+    }
+    if ([20, 24, 76, 80, 84, 88, 136, 140, 144, 148, 200, 204].includes(i)) {
+        cell.classList.add('triple-letter');
+    }
+    if (i == 112) {
+        cell.classList.add('start-square');
+    }
+    // Add drag and drop functionality
+    cell.addEventListener('dragover', event => event.preventDefault());
+    cell.addEventListener('drop', event => {
+        event.preventDefault();
+        if (!cell.hasChildNodes()) {
+            const data = event.dataTransfer.getData("text");
+            const draggableElement = document.getElementById(data);
+            cell.appendChild(draggableElement);
+        }
+    });
+    board.appendChild(cell);
+}
 
-
+// Enable dragging for letters
+initializeLetterDragging();
