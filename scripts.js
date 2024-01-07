@@ -113,3 +113,28 @@ for (let i = 0; i < 225; i++) {
 
 // Enable dragging for letters
 initializeLetterDragging();
+
+
+
+// Working on the find funciton for Scrabble: 
+
+
+// We need to capture all of the letters on the letter-rack
+
+// Create every permutation of those letters.
+
+// check each permutation of those letters in the dictionary
+// 7*6*5*4*3*2 each going into a list 18,000 long
+
+// create a string array of size 2. 
+
+// if the permutation is a word, calculate how many points it is
+
+// if the number of points for that word is greater than the greatest
+    // remove second greatest, add previous greatest
+// if the number of points for that word is second greatest
+    // remove second greatest insert new word
+
+// print the best word to the first words rack
+
+// print the second best word to the second words rack
