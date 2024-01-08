@@ -238,18 +238,25 @@ ul li.how-to-bullets{
 #find-rack{
     position: absolute;
     bottom: 32.5%;
-    left: 24%;
+    left: 12.5%;
+}
+#clear-words{
+    position: absolute;
+    bottom: 32.5%;
+    left: 23%;
 }
 #clear-rack{
     position: absolute;
     bottom: 32.5%;
-    left: 35%;
+    left: 45.5%;
 }
 #clear-board{
     position: absolute;
     bottom: 32.5%;
-    left: 55.7%;
+    left: 65.5%;
 }
+
+
 #words-rack-1{
     display: flex;
     flex-wrap: wrap;

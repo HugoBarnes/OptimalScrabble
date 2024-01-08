@@ -68,11 +68,19 @@ function clearRackAndReturnLetters(rackSelector) {
         }
     });
 }
-
+function clearpts(rackSelector) {
+    const rackRows = document.querySelectorAll(rackSelector);
+    rackRows.forEach(row => {
+        row.innerHTML = ''; // This will remove all child elements in each row
+    });
+}
 // Initialize the functionality for clearing racks and board
 document.getElementById('clear-rack').addEventListener('click', () => {
     clearRackAndReturnLetters('#tile-rack .rack-item');
 });
+document.getElementById('clear-words').addEventListener('click', ()=>{
+    clearpts('#word-0, #word-1, #pts-0, #pts-1');
+})
 document.getElementById('clear-board').addEventListener('click', () => {
     clearRackAndReturnLetters('#board .grid-item');
 });
