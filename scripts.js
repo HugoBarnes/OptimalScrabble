@@ -286,7 +286,26 @@ function wordRack(word, wordRowId) {
 
 
 
-function ptsRack(strInt,position){
-    const num = parseInt(strInt);
+function ptsRack(strInt, position) {
+    const ptsRow = document.getElementById(position);
+    const num = parseInt(strInt, 10);  // Ensure the string is parsed as a base-10 number
 
+    // Create the main container div
+    const pointDiv = document.createElement('div');
+    pointDiv.className = 'output-pts-letter';
+
+    // Create and append the number span
+    const numberSpan = document.createElement('span');
+    numberSpan.textContent = isNaN(num) ? 0 : num;  // Check if num is a number, if not, default to 0
+    pointDiv.appendChild(numberSpan);
+
+    // Create and append the 'pts' span
+    const ptsSpan = document.createElement('span');
+    ptsSpan.className = 'pts-text';  // Corrected the way to set className
+    ptsSpan.textContent = 'pts';
+    pointDiv.appendChild(ptsSpan);
+
+    // Append the pointDiv to the ptsRow
+    ptsRow.appendChild(pointDiv);
 }
+

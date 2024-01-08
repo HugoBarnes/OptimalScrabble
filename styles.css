@@ -319,6 +319,35 @@ ul li.how-to-bullets{
     left: 15.55%;
 }
 
+.output-pts-letter {
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    font-size: 17px;
+}
+.pts-text{
+    position: absolute;
+    font-size: 9px;
+    text-align: center;
+    bottom: 3px;
+}
+#pts-0{
+    position: absolute;
+    bottom: 13.355%;
+    right: 2.8425%;
+}
+#pts-1{
+    position: absolute;
+    bottom: 5.355%;
+    right: 2.8425%;
+}
+
+
 
 /*
 BOARD STYLINGS:
