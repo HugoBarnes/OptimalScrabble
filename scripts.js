@@ -275,7 +275,7 @@ function wordRack(word, wordRowId) {
         letterSpan.textContent = letter;
 
         const pointSpan = document.createElement('span');
-        pointSpan.className = 'point-value';
+        pointSpan.className = 'output-pts';
         pointSpan.textContent = pointValue;
 
         letterDiv.appendChild(letterSpan);
