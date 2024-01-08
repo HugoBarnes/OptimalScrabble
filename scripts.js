@@ -134,6 +134,7 @@ function findBestWords(){
     console.log(permutations);
     const words = validWords(myDictionary, permutations);
     console.log(words);
+    showWords(words);
 }
 
 document.getElementById('find-rack').addEventListener('click', ()=>{
@@ -187,11 +188,7 @@ function loadDictionary() {
         })
         .then(text => {
             myDictionary = text.split(/\r?\n/);
-            console.log("Dictionary loaded", myDictionary); // Log when the dictionary is loaded
-
-            // myDictionary.forEach(word => {
-            //     hashedDictionary.add(hash(word));
-            // });
+            console.log("Dictionary loaded", myDictionary);
         })
         .catch(error => {
             console.error('Error loading dictionary:', error);
@@ -239,4 +236,57 @@ function sumWord(string){
         sum += 50;
     }
     return sum;
+}
+
+const LETTERINFO = {
+    A: [1, 9], B: [3, 2], C: [3, 2], D: [2, 4], E: [1, 12], F: [4, 2], G: [2, 3], H: [4, 2], I: [1, 9],
+    J: [8, 1], K: [5, 1], L: [1, 4], M: [3, 2], N: [1, 6], O: [1, 8], P: [3, 2], Q: [10, 1],
+    R: [1, 6], S: [1, 4], T: [1, 6], U: [1, 4], V: [4, 2], W: [4, 2], X: [8, 1], Y: [4, 2], Z: [10, 1]
+};
+
+
+
+function showWords(words){
+    const firstWord = words[0];
+    const secondWord = words[2];
+    const max = words[1]; 
+    const min = words[3];
+
+    // makes the words tiles
+    wordRack(firstWord,'word-0');
+    wordRack(secondWord,'word-1');
+
+    // makes the pts tiles
+    ptsRack(max,'pts-0');
+    ptsRack(min,'pts-1');
+}
+
+function wordRack(word, wordRowId) {
+    const wordRow = document.getElementById(wordRowId);
+
+    for (let i = 0; i < word.length; i++) {
+        const letter = word[i].toUpperCase();
+        const pointValue = LETTERINFO[letter] ? LETTERINFO[letter][0] : 0;
+
+        const letterDiv = document.createElement('div');
+        letterDiv.className = 'output-letter';
+
+        const letterSpan = document.createElement('span');
+        letterSpan.textContent = letter;
+
+        const pointSpan = document.createElement('span');
+        pointSpan.className = 'point-value';
+        pointSpan.textContent = pointValue;
+
+        letterDiv.appendChild(letterSpan);
+        letterDiv.appendChild(pointSpan);
+        wordRow.appendChild(letterDiv);
+    }
+}
+
+
+
+function ptsRack(strInt,position){
+    const num = parseInt(strInt);
+
 }

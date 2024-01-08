@@ -285,7 +285,26 @@ ul li.how-to-bullets{
 }
 
 
+.output-letter {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
+#filled-words{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    bottom: 5%;
+    left: 10%;
+}
 
 /*
 BOARD STYLINGS:
