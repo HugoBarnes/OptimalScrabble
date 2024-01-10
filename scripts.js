@@ -146,6 +146,7 @@ function findBestWords(){
 }
 
 document.getElementById('find-rack').addEventListener('click', ()=>{
+    clearpts('#word-0, #word-1, #pts-0, #pts-1');
     findBestWords();
 });
 
